@@ -12,14 +12,14 @@ LINE_COLOR = (255,0,0)
 
 screen = pygame.display.set_mode(( HEIGHT,WIDTH))
 pygame.display.set_caption('Rock Paper Scissor Game')
-text_font = pygame.font.SysFont(None,50)
+text_font = pygame.font.SysFont("Arial",50)
 screen.fill(COLOR)
 
 def draw_text(text,font,text_col,x,y):
     img = font.render(text,True,text_col)
     screen.blit(img,(x,y))
 def drawline():
-    pygame.draw.line(screen,LINE_COLOR, (350,0), (350,700), 10 )
+    pygame.draw.line(screen,LINE_COLOR, (350,0), (350,700), 8 )
 
 drawline()
 def game(comp, you):
@@ -70,8 +70,8 @@ def game(comp, you):
 
 # main loop of the game
 while True:
-    draw_text("You", text_font, (0, 0, 0), 155, 20)
-    draw_text("Computer", text_font, (0, 0, 0), 455, 20)
+    draw_text("You", text_font, (0, 0, 0), 150, 20)
+    draw_text("Computer", text_font, (0, 0, 0), 450, 20)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
