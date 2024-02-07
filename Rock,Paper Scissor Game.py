@@ -12,37 +12,36 @@ LINE_COLOR = (255,0,0)
 
 screen = pygame.display.set_mode(( HEIGHT,WIDTH))
 pygame.display.set_caption('Rock Paper Scissor Game')
+text_font = pygame.font.SysFont(None,50)
 screen.fill(COLOR)
 
+def draw_text(text,font,text_col,x,y):
+    img = font.render(text,True,text_col)
+    screen.blit(img,(x,y))
 def drawline():
     pygame.draw.line(screen,LINE_COLOR, (350,0), (350,700), 10 )
 
 drawline()
-#
-# def game(comp, you):
-#     valid = ["Rock","Paper","Scissor"]
-#     if you not in valid :
-#
-#         return "Invalid"
-#     if comp==you:
-#         return "Tie"
-#
-#     if comp == "Rock":
-#         if you == "Paper":
-#             return True
-#         elif you == "Scissor":
-#             return False
-#     if comp == "Paper":
-#         if you == "Rock":
-#             return False
-#         elif you == "Scissor":
-#             return True
-#     if comp =="Scissor":
-#         if you == "Rock":
-#             return True
-#         elif you == 'Paper':
-#             return False
-#
+def game(comp, you):
+    if comp==you:
+        return "Tie"
+
+    if comp == "Rock":
+        if you == "Paper":
+            return True
+        elif you == "Scissor":
+            return False
+    if comp == "Paper":
+        if you == "Rock":
+            return False
+        elif you == "Scissor":
+            return True
+    if comp =="Scissor":
+        if you == "Rock":
+            return True
+        elif you == 'Paper':
+            return False
+
 # # computer choosing random data
 # print(" Computer will chose first ,")
 # rando= random.randint(1,3)
@@ -68,15 +67,11 @@ drawline()
 # else:
 #     print('You Loose , Looserrr !! : | ')
 #
-# # Printing the choice user and comp take
-# if a== "Invalid":
-#     pass
-# else:
-#     print(f'You Choose {you} ')
-#     print(f'Computer Choose {comp}')
 
 # main loop of the game
 while True:
+    draw_text("You", text_font, (0, 0, 0), 155, 20)
+    draw_text("Computer", text_font, (0, 0, 0), 455, 20)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
